@@ -2,6 +2,7 @@ package main.java.com.kaasintl.main;
 
 /**
  * Created by David on 12-4-2015.
+ * Contains all kinds of server-screwing goodness
  */
 public class Main
 {

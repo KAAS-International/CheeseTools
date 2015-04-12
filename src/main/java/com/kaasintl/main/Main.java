@@ -19,6 +19,9 @@ public class Main
 	public ArrayList<PrintWriter> outs     = new ArrayList<PrintWriter>();
 	public Random                 random   = new Random(System.nanoTime());
 
+	public int runningSessions = 0;
+	public int messagesSent    = 0;
+
 	public Main()
 	{
 		this.host = "localhost";
@@ -57,6 +60,7 @@ public class Main
 			try
 			{
 				sessions.add(new Socket(host, port));
+				runningSessions = sessions.size();
 			} catch (Exception ex)
 			{
 				ex.printStackTrace();
@@ -92,6 +96,9 @@ public class Main
 			for (PrintWriter out : outs)
 			{
 				out.write(random.nextLong() + random.nextLong() + "\n");
+				messagesSent++;
+				System.out.flush();
+				System.out.println("Sessions running: " + runningSessions + ", Messages sent: " + messagesSent);
 			}
 		}
 	}

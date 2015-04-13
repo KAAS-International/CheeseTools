@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class Main
 {
-	public static int SESSIONCOUNT = 1000;
+	public int sessionCount = 1000;
 	public String host;
 	public int port;
 	public ArrayList<Socket>      sessions = new ArrayList<Socket>();
@@ -46,18 +46,34 @@ public class Main
 
 	public static void main(String args[])
 	{
+		Main main;
 		if (args.length > 1)
 		{
-			Main main = new Main(args[0], Integer.parseInt(args[1]));
+			switch (args.length)
+			{
+				case 1:
+					main = new Main(args[0], 7789);
+					break;
+				case 2:
+					main = new Main(args[0], Integer.parseInt(args[1]));
+					break;
+				case 3:
+					main = new Main(args[0], Integer.parseInt(args[1]));
+					main.sessionCount = Integer.parseInt(args[2]);
+					break;
+				default:
+					main = new Main();
+					break;
+			}
 		} else
 		{
-			Main main = new Main();
+			main = new Main();
 		}
 	}
 
 	public void ready()
 	{
-		for (int i = 0; i < SESSIONCOUNT; i++)
+		for (int i = 0; i < sessionCount; i++)
 		{
 			try
 			{

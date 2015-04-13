@@ -3,7 +3,9 @@ package main.java.com.kaasintl.main;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 /**
@@ -95,10 +97,10 @@ public class Main
 		{
 			for (PrintWriter out : outs)
 			{
-				out.write(random.nextLong() + random.nextLong() + "\n");
+				out.write(random.nextLong() + "\n");
 				messagesSent++;
 				System.out.flush();
-				System.out.println("Sessions running: " + runningSessions + ", Messages sent: " + messagesSent);
+				System.out.println("Sessions running: " + runningSessions + ", Messages sent: " + NumberFormat.getNumberInstance(Locale.GERMANY).format(messagesSent));
 			}
 		}
 	}

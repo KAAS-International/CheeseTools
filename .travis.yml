@@ -1,3 +1,7 @@
 language: java
 notifications:
   slack: kaascorp:DjoOnOMcRq326SwErvLh47WW
+jdk:
+  - openjdk7
+  - oraclejdk7
+  - oraclejdk8

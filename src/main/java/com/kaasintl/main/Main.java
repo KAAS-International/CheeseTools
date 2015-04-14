@@ -116,7 +116,7 @@ public class Main
 				out.write(random.nextLong() + "\n");
 				messagesSent++;
 				System.out.flush();
-                if (messagesSent % 100000 == 0) {
+                if (messagesSent % 1000000 == 0) {
                     System.out.println("Sessions running: " + runningSessions + ", Messages sent: " + NumberFormat.getNumberInstance(Locale.GERMANY).format(messagesSent));
                 }
             }

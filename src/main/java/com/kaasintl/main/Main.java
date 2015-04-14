@@ -116,8 +116,10 @@ public class Main
 				out.write(random.nextLong() + "\n");
 				messagesSent++;
 				System.out.flush();
-				System.out.println("Sessions running: " + runningSessions + ", Messages sent: " + NumberFormat.getNumberInstance(Locale.GERMANY).format(messagesSent));
-			}
-		}
+                if (messagesSent % 100000 == 0) {
+                    System.out.println("Sessions running: " + runningSessions + ", Messages sent: " + NumberFormat.getNumberInstance(Locale.GERMANY).format(messagesSent));
+                }
+            }
+        }
 	}
 }
